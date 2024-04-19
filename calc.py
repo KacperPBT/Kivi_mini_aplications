@@ -1,6 +1,5 @@
 from kivy.app import App
 from kivy.uix.widget import Widget
-from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 from kivy.core.window import Window
 
@@ -26,6 +25,9 @@ class MyLayout(Widget):
             num_list = prior.split("-")
             prior = num_list[-1]
         return prior
+
+    def percent(self):
+        self.ids.calc_input.text += "*0.01*"
 
     def clear(self):
        self.ids.calc_input.text = '0'
@@ -71,6 +73,7 @@ class MyLayout(Widget):
         prior = self.ids.calc_input.text
         try:
             answer = eval(prior)
+            answer = round(answer, 3)
             self.ids.calc_input.text = f'{answer}'
         except:
             self.ids.calc_input.text = 'Error'
