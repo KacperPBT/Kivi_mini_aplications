@@ -1,0 +1,23 @@
+<MyLayout>
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            TextInput:
+                id: path1
+                font_size: 32
+                multiline: False
+
+            TextInput:
+                id: path2
+                font_size: 32
+                multiline: False
+        
+        Button:
+            text: "Marge"
+            font_size: 32
+            on_press: root.press()
+            on_release: root.un_press()
